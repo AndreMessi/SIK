@@ -84,9 +84,16 @@
                   </div>
                   <div class="form-group row">
                     <div class="col-sm-10">
-                      <button type="submit" name="submit"class="btn btn-primary" value="Simpan">Submit</button>
+                      <button onclick="myfunction()" type="submit" name="submit"class="btn btn-primary" value="Simpan" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                      <script type="text/javascript">
+                        function myfunction(){
+                          alert("berhasil Upload");
+                        }
+                      </script>
                       <a href="<?php echo base_url(); ?>">
                     </div>
+          
+
                   </div>
                 </form>
                 <?php echo form_close() ?>
@@ -98,5 +105,7 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js.js"></script>
+
 </body>
 </html>
