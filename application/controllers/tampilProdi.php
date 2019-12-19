@@ -17,5 +17,11 @@ class tampilProdi extends CI_Controller {
   $this->load->view("prodi/dashboard", $data);    
   
  } 
+ public function delete($id=null){
+ 	if(!isset($id)) show_404();
+
+ 	if ($this->modelProdi->delete($id)) {
+ 		redirect(site_url('prodi/dashboard'));
+ 	}
   
 }

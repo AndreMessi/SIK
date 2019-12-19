@@ -14,8 +14,11 @@ class tampilKompensasi extends CI_Controller {
   $data['title'] = "Join CodeIgniter"; 
   // query memanggil function duatable di model
   $data['join3'] = $this->modelKompensasi->tigatable(); 
-  $this->load->view("prodi/dashboard", $data);   
+  $this->load->view("admin/dashboard", $data);   
   
+ }
+
+ 
  } 
   
 }

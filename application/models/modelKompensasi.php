@@ -4,10 +4,11 @@
     
     public function tigatable() {
         $this->db->select('*');
-        $this->db->from('mahasiswa');
-        $this->db->join('matakuliah','matakuliah.id_matakuliah=dosen.id_dosen');
-        $this->db->join('kompensasi','kompensasi.id_kompensasi=matakuliah.id_matakuliah');
-        $this->db->where($aktif);
+        $this->db->from('kompensasi');
+        $this->db->join('mahasiswa','mahasiswa.id_mahasiswa = kompensasi.id_mahasiswa');
+        $this->db->join('matakuliah','matakuliah.id_matakuliah = kompensasi.id_matakuliah');
+        $this->db->join('dosen','dosen.id_dosen=kompensasi.id_dosen');
+        //$this->db->where($aktif);
         $query = $this->db->get();
         return $query->result();
     }
@@ -15,8 +16,13 @@
 
     //contoh model
     function tesmodel() {
-		return $this->db->query("SELECT * FROM mahasiswa join matakuliah ON mahasiswa.id_mahasiswa=matakuliah.id_matakuliah join kompensasi ON matakuliah.id_matakuliah = kompensasi.id_kompensasi join dosen ON kompensasi.id_dosen = dosen.id_dosen")->result();
+		return $this->db->query("SELECT * from kompensasi join mahasiswa on mahasiswa.id_mahasiswa=kompensasi.id_mahasiswa join matakuliah on matakuliah.id_matakuliah = kompensasi.id_matakuliah join dosen on kompensasi.id_dosen = dosen.id_dosen")->result();
 
 	}
 
+    function delete($id){
+        return $this->db->delete(_table,array("id_kompensasi"=>$id));
+    }
+
 }
+
