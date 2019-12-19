@@ -51,6 +51,7 @@
                       <th scope="col">Kelas</th>
                       <th scope="col">Dosen</th>
                       <th scope="col">Pertemuan</th>
+                        <th scope="col">Status</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -65,6 +66,7 @@
                       <td><?php echo $row->kelas;?></td>
                       <td><?php echo $row->nama_dosen;?></td>
                       <td><?php echo $row->pertemuan_matkul;?></td>
+                      <td><?php echo $row->status;?></td>
                     </tr>
                   <?php } ?>
                   </tbody>
