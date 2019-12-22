@@ -2,7 +2,13 @@
 
     class modelKompensasi extends CI_Model {
     
-    public function tigatable() {
+    public function tigatable($where) {
+        // $this->db->select('*,YEAR(k.thn_akademik) as thn_akademik');
+        // $this->db->join('matakuliah mk','mk.id_matakuliah=k.id_matakuliah');
+        // $this->db->join('dosen d','d.id_dosen=k.id_dosen');
+        // $this->db->join('mahasiswa m','m.id_mahasiswa=k.id_matakuliah');
+        // if(isset($where)) $this->db->where($where);
+        // return $this->db->get('kompensasi k')->result();
         $this->db->select('*');
         $this->db->from('kompensasi');
         $this->db->join('mahasiswa','mahasiswa.id_mahasiswa = kompensasi.id_mahasiswa');
@@ -20,9 +26,9 @@
 
 	}
 
-    function delete($id){
+     function delete($id){
         return $this->db->delete(_table,array("id_kompensasi"=>$id));
     }
 
-}
 
+}

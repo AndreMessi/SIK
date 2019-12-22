@@ -16,6 +16,7 @@ class Gambar extends CI_Controller {
     }
     
     public function tambah(){
+        // exit(json_encode($this->input->post()));
         $data = array();
         
         if($this->input->post('submit')){ // Jika user menekan tombol Submit (Simpan) pada form
@@ -34,6 +35,58 @@ class Gambar extends CI_Controller {
         }
         
         $this->load->view('user/dashboard', $data);
+    }
+
+    public function save(){
+		$config['upload_path'] = './images/';
+		$config['allowed_types'] = 'jpg|png|jpeg';
+		$config['max_size']	= '2048';
+		$config['remove_space'] = TRUE;
+	
+		$this->load->library('upload', $config); // Load konfigurasi uploadnya
+		if($this->upload->do_upload('input_gambar')){ // Lakukan upload dan Cek jika proses upload berhasil
+			// Jika berhasil :
+			$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+		}else{
+			// Jika gagal :
+			$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+        }
+        
+		$data_mhs = array(
+			'nim'=>$this->input->post('nim'),
+			'nama'=>$this->input->post('nama'),
+			'jurusan'=>$this->input->post('jurusan'),
+			'gambar' => $upload['file']['file_name'],
+			
+		);
+
+		$data_dosen = array(
+			'nama_dosen'=>$this->input->post('nama_dosen'),
+			
+		);
+
+		$data_matkul = array(
+			'nama_matkul'=>$this->input->post('nama_matkul'),
+			'jlmh_sks'=>$this->input->post('jmlh_sks'),
+			'kelas'=>$this->input->post('kelas'),
+		);
+
+		$mhs_id = $this->GambarModel->add_dml_get_id('mahasiswa',$data_mhs);
+		$dosen_id = $this->GambarModel->add_dml_get_id('dosen',$data_dosen);
+		$matkul_id = $this->GambarModel->add_dml_get_id('matakuliah',$data_matkul);
+
+		$data_kompen = array(
+			'id_mahasiswa'=>$mhs_id,
+			'id_dosen'=>$dosen_id,
+			'id_matakuliah'=>$matkul_id,
+			'pertemuan_matkul'=>$this->input->post('pertemuan_matkul'),
+			'thn_akademik'=>date_format($this->input->post('thn_akademik'),'Y'),
+			'semester'=>$this->input->post('semester'),
+			
+		);
+
+        $last = $this->db->insert('kompensasi', $data_kompen);
+        if($last) redirect(base_url('index.php/user/dashboard'));
     }
 
 

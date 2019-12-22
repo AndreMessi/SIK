@@ -8,6 +8,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         //load model admin
         $this->load->model('admin');
+        $this->load->model('modelKompensasi');
         //cek session dan level user
         if($this->admin->is_role() != "admin"){
             redirect("login/");

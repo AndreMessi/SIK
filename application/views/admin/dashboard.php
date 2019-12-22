@@ -35,7 +35,7 @@
               <a href="" class="list-group-item"><i class="fa fa-home"></i> Home</a>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
                 Selamat Datang <b><?php echo $this->session->userdata("user_nama") ?></b>
@@ -51,7 +51,6 @@
                       <th scope="col">Kelas</th>
                       <th scope="col">Dosen</th>
                       <th scope="col">Pertemuan</th>
-                        <th scope="col">Status</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -66,7 +65,6 @@
                       <td><?php echo $row->kelas;?></td>
                       <td><?php echo $row->nama_dosen;?></td>
                       <td><?php echo $row->pertemuan_matkul;?></td>
-                      <td><?php echo $row->status;?></td>
                     </tr>
                   <?php } ?>
                   </tbody>

@@ -42,7 +42,7 @@
               
               </div>
               <div class="panel-body">
-                 <?php echo form_open("gambar/tambah", array('enctype'=>'multipart/form-data')); ?>
+                 <?php echo form_open("gambar/save", array('enctype'=>'multipart/form-data')); ?>
                 <form>
                  
                   <div class="form-group row">
@@ -65,15 +65,45 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="nohp" class="col-sm-3 col-form-label">No Hp</label>
+                    <label for="nama_matkul" class="col-sm-3 col-form-label">Nama Matakuliah</label>
                     <div class="col-sm-9">
-                       <input type="number" class="form-control" name="nohp" value="<?php echo set_value('nohp'); ?>" placeholder="Masukkan No Hp">
+                      <input type="text" class="form-control" name="nama_matkul" value="<?php echo set_value('nama_matkul'); ?>" placeholder="Masukkan nama matakuliah">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="email" class="col-sm-3 col-form-label">Email</label>
+                    <label for="jmlh_sks" class="col-sm-3 col-form-label">Jumlah Sks</label>
                     <div class="col-sm-9">
-                       <input type="text" class="form-control" name="email" value="<?php echo set_value('email'); ?>" placeholder="Masukkan Email">
+                      <input type="text" class="form-control" name="jmlh_sks" value="<?php echo set_value('jmlh_sks'); ?>" placeholder="Masukkan jumlah sks">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="kelas" class="col-sm-3 col-form-label">Kelas</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="kelas" value="<?php echo set_value('kelas'); ?>" placeholder="Masukkan kelas">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="nama_dosen" class="col-sm-3 col-form-label">Nama Dosen</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="nama_dosen" value="<?php echo set_value('nama_dosen'); ?>" placeholder="Masukkan nama dosen">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="pertemuan_matkul" class="col-sm-3 col-form-label">Pertemuan Matakuliah</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="pertemuan_matkul" value="<?php echo set_value('pertemuan_matkul'); ?>" placeholder="Masukkan pertemuan">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="thn_akademik" class="col-sm-3 col-form-label">Tahun Akademik</label>
+                    <div class="col-sm-9">
+                      <input type="date" class="form-control" name="thn_akademik" value="<?php echo set_value('thn_akademik'); ?>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="semester" class="col-sm-3 col-form-label">Semester</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="semester" value="<?php echo set_value('semester'); ?>" placeholder="Masukkan semester">
                     </div>
                   </div>
                   <div class="form-group row">
@@ -84,7 +114,7 @@
                   </div>
                   <div class="form-group row">
                     <div class="col-sm-10">
-                      <button onclick="myfunction()" type="submit" name="submit"class="btn btn-primary" value="Simpan" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                      <button onclicsk="myfunction()" type="submit" name="submit"class="btn btn-primary" value="Simpan" data-toggle="modal" data-target="#exampleModal">Submit</button>
                       <script type="text/javascript">
                         function myfunction(){
                           alert("berhasil Upload");

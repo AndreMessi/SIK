@@ -24,4 +24,5 @@ class tampilProdi extends CI_Controller {
  		redirect(site_url('prodi/dashboard'));
  	}
   
+	}
 }

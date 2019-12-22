@@ -24,19 +24,49 @@ class GambarModel extends CI_Model {
 			return $return;
 		}
 	}
-	
+
+	function add_dml_get_id($table,$data){
+		$this->db->insert($table, $data);
+		$insert_id = $this->db->insert_id();
+	 
+		return $insert_id;
+ }
 	// Fungsi untuk menyimpan data ke database
 	public function save($upload){
-		$data = array(
+		$data_mhs = array(
 			'nim'=>$this->input->post('nim'),
 			'nama'=>$this->input->post('nama'),
 			'jurusan'=>$this->input->post('jurusan'),
-			'nohp'=>$this->input->post('nohp'),
-			'email'=>$this->input->post('email'),
 			'gambar' => $upload['file']['file_name'],
 			
 		);
-		
-		$this->db->insert('mahasiswa', $data);
+
+		$data_dosen = array(
+			'nama_dosen'=>$this->input->post('nama_dosen'),
+			
+		);
+
+		$data_matkul = array(
+			'nama_matkul'=>$this->input->post('nama_matkul'),
+			'jlmh_sks'=>$this->input->post('jmlh_sks'),
+			'kelas'=>$this->input->post('kelas'),
+		);
+
+		$mhs_id = $this->add_dml_get_id('mahasiswa',$data_mhs);
+		$dosen_id = $this->add_dml_get_id('dosen',$data_dosen);
+		$matkul_id = $this->add_dml_get_id('matakuliah',$data_matkul);
+
+		$data_kompen = array(
+			'id_mahasiswa'=>$mhs_id,
+			'id_dosen'=>$dosen_id,
+			'id_matakuliah'=>$matkul_id,
+			'pertemuan_matkul'=>$this->input->post('pertemuan_matkul'),
+			'thn_akademik'=>date_format($this->input->post('thn_akademik')),
+			'semester'=>$this->input->post('semester'),
+			
+		);
+
+		$this->db->insert('kompensasi', $data_kompen);
 	}
+	
 }

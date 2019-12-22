@@ -30,7 +30,7 @@
         <div class="col-md-3">
             <div class="list-group">
               <a href="#" class="list-group-item active" style="text-align: center;background-color: black;border-color: black">
-                PENGAJARAN
+                PRODI
               </a>
               <a href="" class="list-group-item"><i class="fa fa-home"></i> Home</a>
             </div>
@@ -47,31 +47,16 @@
                       <th scope="col">No</th>
                       <th scope="col">Nim</th>
                       <th scope="col">Nama</th>
-                      <th scope="col">KodeMk</th>
+                      <th scope="col">NamaMk</th>
                       <th scope="col">Kelas</th>
                       <th scope="col">Dosen</th>
                       <th scope="col">Pertemuan</th>
-                      <th scope="col">Status</th>
-                       <th scope="col">Semester</th>
-                       <th scope="col">Gambar</th>
-                        <th scope="col">Action</th>
+                      <th scope="col">Thun Akademik</th>
+                      <th scope="col">Semester</th>
+                      <th scope="col">Gambar</th>
                     </tr>
                   </thead>
                   <tbody>
-                 <!--  <?php 
-                    $no=1; 
-                    foreach ($join3 as $row) { ?>
-                    <tr>
-                      <td><?php echo $no++;?></td>
-                      <td><?php echo $row->nim;?></td>
-                      <td><?php echo $row->nama;?></td>
-                      <td><?php echo $row->kd_matkul;?></td>
-                      <td><?php echo $row->kelas;?></td>
-                      <td><?php echo $row->nama_dosen;?></td>
-                      <td><?php echo $row->pertemuan_matkul;?></td>
-                      <td><?php echo $row->status;?></td>
-                    </tr>
-                  <?php } ?> -->
                   <?php 
                     $no=1; 
                     foreach ($join3 as $row) { ?>
@@ -79,20 +64,12 @@
                       <td><?php echo $no++;?></td>
                       <td><?php echo $row->nim;?></td>
                       <td><?php echo $row->nama;?></td>
-                      <td><?php echo $row->kd_matkul;?></td>
+                      <td><?php echo $row->nama_matkul;?></td>
                       <td><?php echo $row->kelas;?></td>
                       <td><?php echo $row->nama_dosen;?></td>
                       <td><?php echo $row->pertemuan_matkul;?></td>
                       <td><?php echo $row->thn_akademik;?></td>
                       <td><?php echo $row->semester;?></td>
-                    <!--   <td>  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Lihat</button>
-                        <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                                  <img src="<?= base_url('images/').$row->gambar;?>"/>
-                        </div>
-                      </div>
-                      </td>
- -->
                       <td>
                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                           Lihat
@@ -117,11 +94,6 @@
                           </div>
                         </div>
                       </td>
-                      <td>
-                          <button type="button" class="btn btn-primary">Terima</button>
-                          <button type="button" class="btn btn-danger">Tolak</button>
-                      </td>
-
                     </tr>
                   <?php } ?>
                   </tbody>

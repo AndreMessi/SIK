@@ -18,12 +18,12 @@ class Dashboard extends CI_Controller {
     public function index()
     {
         
-  $data['title'] = "Join CodeIgniter"; 
-  // query memanggil function duatable di model
-  $where = array(
-    //   '' => '',
-  );
-  $data['join3'] = $this->modelprodi->tigatable($where); 
+    $data['title'] = "Join CodeIgniter"; 
+    // query memanggil function duatable di model
+    $where = array(
+        //   '' => '',
+    );
+    $data['join3'] = $this->modelprodi->tigatable($where); 
 //   print_r($data);
         $this->load->view("prodi/dashboard",$data);            
 

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 18, 2019 at 07:32 AM
--- Server version: 10.3.17-MariaDB-1
--- PHP Version: 7.2.9-1
+-- Generation Time: Dec 19, 2019 at 02:59 PM
+-- Server version: 10.4.10-MariaDB-1:10.4.10+maria~bionic-log
+-- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kompensasi`
+-- Database: `kompen`
 --
 
 -- --------------------------------------------------------
@@ -55,15 +55,16 @@ CREATE TABLE `kompensasi` (
   `pertemuan_matkul` int(5) NOT NULL,
   `thn_akademik` date NOT NULL,
   `semester` varchar(11) NOT NULL,
-  `id_dosen` int(11) NOT NULL
+  `id_dosen` int(11) NOT NULL,
+  `status` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kompensasi`
 --
 
-INSERT INTO `kompensasi` (`id_kompensasi`, `id_mahasiswa`, `id_matakuliah`, `kelas`, `pertemuan_matkul`, `thn_akademik`, `semester`, `id_dosen`) VALUES
-(1, 1, 1, '', 0, '0000-00-00', '', 1);
+INSERT INTO `kompensasi` (`id_kompensasi`, `id_mahasiswa`, `id_matakuliah`, `kelas`, `pertemuan_matkul`, `thn_akademik`, `semester`, `id_dosen`, `status`) VALUES
+(1, 1, 1, '10', 10, '2019-12-18', '10', 1, 'accept');
 
 -- --------------------------------------------------------
 
@@ -86,12 +87,22 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `nim`, `nama`, `jurusan`, `nohp`, `email`, `gambar`) VALUES
-(1, 165410090, 'Satrio Wibowo', 'Teknik Informatika', '087654123456', 'bowo@gmail.com', 'hello.jpg'),
-(2, 11, '', 'ddd', '11111', 'ddd', 'xsskitabisa.jpg'),
-(3, 11, '', 'ddd', '11111', 'ddd', 'xsskitabisa1.jpg'),
-(4, 12, 'sett', 'ddd', '11111', 'ddd', 'xsskitabisa2.jpg'),
-(5, 12, 'sett', 'ddd', '11111', 'ddd', 'xsskitabisa3.jpg'),
-(6, 165410090, 'Zaefudin', 'Sistem Informasi', '087890654234', 'zaefudin@gmail.com', 'xss.png');
+(1, 11, 'adi', 'ti', '087', 'adi@mail', 'hhh.jpg'),
+(8, 234, 'hanip', 'ti', '098', 'hanip@mail', 'absen.png'),
+(9, 165, 'pri', 'ti', '09822', 'pri@mail.com', 'absen1.png'),
+(10, 11122, 'as', 'a', '1', 'SA', 'absen2.png'),
+(11, 11122, 'as', 'a', '1', 'SA', 'absen3.png'),
+(12, 5, 'as', 'a', '1', 'SA', 'karyawan1.png'),
+(13, 9, 'as', 'a', '1', 'SA', 'absen4.png'),
+(14, 9, 'as', 'a', '1', 'SA', 'absen5.png'),
+(15, 9, 'as', 'a', '1', 'SA', 'absen6.png'),
+(16, 9, 'as', 'a', '1', 'SA', 'absen7.png'),
+(17, 9, 'as', 'a', '1', 'SA', 'absen8.png'),
+(18, 9, 'as', 'a', '1', 'SA', 'absen9.png'),
+(19, 10, 'as', 'a', '1', 'SA', 'absen10.png'),
+(20, 10, 'as', 'a', '1', 'SA', 'agenda1.png'),
+(21, 13, 'as', 'a', '1', 'SA', 'absen11.png'),
+(22, 14, 'ikeh', 'hahah', '988', 'A@mail', 'agenda2.png');
 
 -- --------------------------------------------------------
 
@@ -112,7 +123,8 @@ CREATE TABLE `matakuliah` (
 --
 
 INSERT INTO `matakuliah` (`id_matakuliah`, `kd_matkul`, `nama_matkul`, `jlmh_sks`, `kelas`) VALUES
-(1, '123456', 'Pemerograman Web', 2, 'TI4');
+(1, '123456', 'Pemerograman Web', 2, 'TI4'),
+(2, 'kmz', 'matematika dasar', 2, '1');
 
 -- --------------------------------------------------------
 
@@ -187,17 +199,17 @@ ALTER TABLE `dosen`
 -- AUTO_INCREMENT for table `kompensasi`
 --
 ALTER TABLE `kompensasi`
-  MODIFY `id_kompensasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_kompensasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `matakuliah`
 --
 ALTER TABLE `matakuliah`
-  MODIFY `id_matakuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_matakuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user`
 --
