@@ -47,6 +47,7 @@
                       <th scope="col">No</th>
                       <th scope="col">Nim</th>
                       <th scope="col">Nama</th>
+                      <th scope="col">NamaMk</th>
                       <th scope="col">Kelas</th>
                       <th scope="col">Dosen</th>
                       <th scope="col">Pertemuan</th>
@@ -60,6 +61,7 @@
                       <td><?php echo $no++;?></td>
                       <td><?php echo $row->nim;?></td>
                       <td><?php echo $row->nama;?></td>
+                      <td><?php echo $row->nama_matkul;?></td>
                       <td><?php echo $row->kelas;?></td>
                       <td><?php echo $row->nama_dosen;?></td>
                       <td><?php echo $row->pertemuan_matkul;?></td>

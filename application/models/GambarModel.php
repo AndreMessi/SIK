@@ -8,7 +8,7 @@ class GambarModel extends CI_Model {
 	
 	// Fungsi untuk melakukan proses upload file
 	public function upload(){
-		$config['upload_path'] = './images/';
+		$config['upload_path'] = './images';
 		$config['allowed_types'] = 'jpg|png|jpeg';
 		$config['max_size']	= '2048';
 		$config['remove_space'] = TRUE;
@@ -37,7 +37,7 @@ class GambarModel extends CI_Model {
 			'nim'=>$this->input->post('nim'),
 			'nama'=>$this->input->post('nama'),
 			'jurusan'=>$this->input->post('jurusan'),
-			'gambar' => $upload['file']['file_name'],
+			'input_gambar' => $upload['file']['file_name'],
 			
 		);
 

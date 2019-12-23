@@ -17,7 +17,7 @@ class Dashboard extends CI_Controller {
 
     public function index()
     {
-        $query = $this->db->query("SELECT * FROM mahasiswa join matakuliah ON mahasiswa.id_mahasiswa=matakuliah.id_matakuliah join kompensasi ON matakuliah.id_matakuliah = kompensasi.id_kompensasi join dosen ON kompensasi.id_dosen = dosen.id_dosen")->result();
+        $query = $this->db->query("SELECT kompensasi.pertemuan_matkul, mahasiswa.nim, mahasiswa.nama, matakuliah.nama_matkul,matakuliah.kelas, dosen.nama_dosen FROM kompensasi JOIN mahasiswa ON kompensasi.id_mahasiswa = mahasiswa.id_mahasiswa JOIN dosen ON kompensasi.id_dosen = dosen.id_dosen JOIN matakuliah ON kompensasi.id_matakuliah = matakuliah.id_matakuliah")->result();
         $data['title'] = "Join CodeIgniter"; 
         $data['join3'] = $query;
         

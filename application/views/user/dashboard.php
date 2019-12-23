@@ -109,21 +109,13 @@
                   <div class="form-group row">
                     <label for="gambar" class="col-sm-3 col-form-label">Upload Kompensasi</label>
                     <div class="col-sm-9">
-                      <input type="file"  id="gambar" name="input_gambar">
+                      <input type="file" name="input_gambar">
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-sm-10">
-                      <button onclicsk="myfunction()" type="submit" name="submit"class="btn btn-primary" value="Simpan" data-toggle="modal" data-target="#exampleModal">Submit</button>
-                      <script type="text/javascript">
-                        function myfunction(){
-                          alert("berhasil Upload");
-                        }
-                      </script>
-                      <a href="<?php echo base_url(); ?>">
+                      <button type="submit" name="submit"class="btn btn-primary" value="Simpan" data-toggle="modal" data-target="#exampleModal">Submit</button>
                     </div>
-          
-
                   </div>
                 </form>
                 <?php echo form_close() ?>
