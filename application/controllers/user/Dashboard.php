@@ -21,7 +21,7 @@ class Dashboard extends CI_Controller {
         $this->load->view("user/dashboard");            
 
     }
-
+    
     public function logout()
     {
         $this->session->sess_destroy();

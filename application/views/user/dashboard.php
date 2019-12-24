@@ -38,12 +38,10 @@
             <div class="panel panel-default">
               <div class="panel-heading">
                 Selamat Datang <b><?php echo $this->session->userdata("user_nama") ?></b>
-               <!--  <?php echo form_open_multipart('kompensasi/upload'); ?> -->
               
               </div>
               <div class="panel-body">
                  <?php echo form_open("gambar/save", array('enctype'=>'multipart/form-data')); ?>
-                <form>
                  
                   <div class="form-group row">
                     <label for="nim" class="col-sm-3 col-form-label">Nim Mahasiswa</label>
@@ -97,7 +95,7 @@
                   <div class="form-group row">
                     <label for="thn_akademik" class="col-sm-3 col-form-label">Tahun Akademik</label>
                     <div class="col-sm-9">
-                      <input type="date" class="form-control" name="thn_akademik" value="<?php echo set_value('thn_akademik'); ?>">
+                      <input type="number" class="form-control" name="thn_akademik" value="<?php echo set_value('thn_akademik'); ?>">
                     </div>
                   </div>
                   <div class="form-group row">

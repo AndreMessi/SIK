@@ -7,7 +7,7 @@ class GambarModel extends CI_Model {
 	}
 	
 	// Fungsi untuk melakukan proses upload file
-	public function upload(){
+	public function _uploadImg(){
 		$config['upload_path'] = './images';
 		$config['allowed_types'] = 'jpg|png|jpeg';
 		$config['max_size']	= '2048';
@@ -16,9 +16,8 @@ class GambarModel extends CI_Model {
 		$this->load->library('upload', $config); // Load konfigurasi uploadnya
 		if($this->upload->do_upload('input_gambar')){ // Lakukan upload dan Cek jika proses upload berhasil
 			// Jika berhasil :
-			$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
-			return $return;
-		}else{
+			return $this->upload->data("file_name");
+			}else{
 			// Jika gagal :
 			$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
 			return $return;
@@ -30,17 +29,16 @@ class GambarModel extends CI_Model {
 		$insert_id = $this->db->insert_id();
 	 
 		return $insert_id;
- }
+	}
 	// Fungsi untuk menyimpan data ke database
 	public function save($upload){
 		$data_mhs = array(
 			'nim'=>$this->input->post('nim'),
-			'nama'=>$this->input->post('nama'),
+			'nama'=>'kontol',
 			'jurusan'=>$this->input->post('jurusan'),
-			'input_gambar' => $upload['file']['file_name'],
+			'gambar' =>$upload['file']['file_name'],
 			
 		);
-
 		$data_dosen = array(
 			'nama_dosen'=>$this->input->post('nama_dosen'),
 			

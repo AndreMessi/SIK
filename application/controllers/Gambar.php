@@ -56,7 +56,7 @@ class Gambar extends CI_Controller {
 			'nim'=>$this->input->post('nim'),
 			'nama'=>$this->input->post('nama'),
 			'jurusan'=>$this->input->post('jurusan'),
-			'gambar' => $upload['file']['file_name'],
+			'gambar' => $return['file']['file_name'],
 			
 		);
 
@@ -80,7 +80,7 @@ class Gambar extends CI_Controller {
 			'id_dosen'=>$dosen_id,
 			'id_matakuliah'=>$matkul_id,
 			'pertemuan_matkul'=>$this->input->post('pertemuan_matkul'),
-			'thn_akademik'=>date_format($this->input->post('thn_akademik'),'Y'),
+			'thn_akademik'=>$this->input->post('thn_akademik'),
 			'semester'=>$this->input->post('semester'),
 			
 		);

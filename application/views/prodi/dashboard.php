@@ -71,21 +71,19 @@
                       <td><?php echo $row->thn_akademik;?></td>
                       <td><?php echo $row->semester;?></td>
                       <td>
-                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                          Lihat
-                        </button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<?= $no.'gambar'?>">Lihat</button>
+
+                        <!-- Modal -->
+                        <div id="<?= $no.'gambar'?>" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+
+                            <!-- Modal content-->
                             <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
                               <div class="modal-body">
-                                <img src="<?= base_url('./images').$row->gambar;?>"/>
+                                <img src="<?= base_url('images/').$row->gambar;?>" style="width: 565px; height: 325px;"/>
                               </div>
                             </div>
+
                           </div>
                         </div>
                       </td>
