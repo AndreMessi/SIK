@@ -100,26 +100,9 @@ class Gambar extends CI_Controller {
 	}
 	public function status1(){
 		$id = $_POST['id'];
-		$status1 = $_POST['tolak'];
+		$status1 = $_POST['status'];
 		$statusupdate = array(
 			'status' => $status1
-		);
-		$where = array("id_kompensasi"=>$id);
-		$hasil = $this->GambarModel->update_data_status('kompensasi',$statusupdate,$where);
-		if($hasil > 0){
-			redirect('prodi/dashboard');
-		}
-		else
-		{
-			echo "gagal";
-		}
-
-	}
-	public function status2(){
-		$id = $_POST['id'];
-		$status = $_POST['terima'];
-		$statusupdate = array(
-			'status' => $status
 		);
 		$where = array("id_kompensasi"=>$id);
 		$hasil = $this->GambarModel->update_data_status('kompensasi',$statusupdate,$where);

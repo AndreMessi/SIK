@@ -87,14 +87,9 @@
                                 <form method="post" action="<?php echo base_url()."index.php/gambar/status1" ?>">
                                   <label for="">Status : <?php echo $row->status; ?></label>
                                   <input type="hidden" name="id" readonly value="<?php echo $row->id_kompensasi; ?>">    
-                                  <input class="btn btn-danger" type="submit" name="tolak" value="Tolak">
+                                  <input class="btn btn-danger" type="submit" name="status" value="Tolak">
+                                  <input class="btn btn-primary" type="submit" name="status" value="Terima">
                                 </form>
-                                
-                                <form method="post" action="<?php echo base_url()."index.php/gambar/status2" ?>">
-                                  <input type="hidden" name="id" readonly value="<?php echo $row->id_kompensasi; ?>">
-                                  <input class="btn btn-primary" type="submit" name="terima" value="Terima">
-                                </form>
-                                
                               </div>
                             </div>
                           </div>
