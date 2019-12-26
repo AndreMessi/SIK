@@ -66,5 +66,22 @@ class GambarModel extends CI_Model {
 
 		$this->db->insert('kompensasi', $data_kompen);
 	}
-	
+	function edit_data($where,$table){                              
+
+		return $this->db->get_where($table,$where);
+
+	}
+	function update_data_status($namatabel,$data,$where){
+
+	$hasil = $this->db->update($namatabel,$data,$where);
+	return $hasil;
+
+	}      
+	function tampil_status($where=""){
+		$data = $this->db->query('SELECT * from kompensasi'.$where);
+		return $data->result_array();
+	}       
+
+
+
 }

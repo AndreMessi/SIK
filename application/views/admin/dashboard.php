@@ -51,6 +51,8 @@
                       <th scope="col">Kelas</th>
                       <th scope="col">Dosen</th>
                       <th scope="col">Pertemuan</th>
+                      <th scope="col">Gambar</th>
+                      <th scope="col">Status</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -65,6 +67,24 @@
                       <td><?php echo $row->kelas;?></td>
                       <td><?php echo $row->nama_dosen;?></td>
                       <td><?php echo $row->pertemuan_matkul;?></td>
+                      <td>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<?= $no.'gambar'?>">Lihat</button>
+
+                        <!-- Modal -->
+                        <div id="<?= $no.'gambar'?>" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <img src="<?= base_url('images/').$row->gambar;?>" style="width: 565px; height: 325px;"/>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </td>
+                      <td><?php echo $row->status;?></td>
                     </tr>
                   <?php } ?>
                   </tbody>

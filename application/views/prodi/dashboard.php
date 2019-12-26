@@ -71,19 +71,32 @@
                       <td><?php echo $row->thn_akademik;?></td>
                       <td><?php echo $row->semester;?></td>
                       <td>
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<?= $no.'gambar'?>">Lihat</button>
-
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<?= $no.'gambar'; ?>">Lihat</button>
+                          
                         <!-- Modal -->
                         <div id="<?= $no.'gambar'?>" class="modal fade" role="dialog">
                           <div class="modal-dialog">
 
                             <!-- Modal content-->
                             <div class="modal-content">
-                              <div class="modal-body">
+                              <div class="modal-body">                             
                                 <img src="<?= base_url('images/').$row->gambar;?>" style="width: 565px; height: 325px;"/>
                               </div>
-                            </div>
 
+                              <div class="modal-footer">
+                                <form method="post" action="<?php echo base_url()."index.php/gambar/status1" ?>">
+                                  <label for="">Status : <?php echo $row->status; ?></label>
+                                  <input type="hidden" name="id" readonly value="<?php echo $row->id_kompensasi; ?>">    
+                                  <input class="btn btn-danger" type="submit" name="tolak" value="Tolak">
+                                </form>
+                                
+                                <form method="post" action="<?php echo base_url()."index.php/gambar/status2" ?>">
+                                  <input type="hidden" name="id" readonly value="<?php echo $row->id_kompensasi; ?>">
+                                  <input class="btn btn-primary" type="submit" name="terima" value="Terima">
+                                </form>
+                                
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </td>

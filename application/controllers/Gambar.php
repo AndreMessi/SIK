@@ -88,6 +88,49 @@ class Gambar extends CI_Controller {
         $last = $this->db->insert('kompensasi', $data_kompen);
         if($last) redirect(base_url('index.php/user/dashboard'));
     }
+	public function edit_status($id){
 
+		$ds = $this->GambarModel->tampil_status(" where id_kompensasi = '$id'");
+		$data = array(
+			"id" => $ds[0]['id_kompensasi'],
+			"status" => $ds[0]['status'],
+		);
+		$this->load->view('prodi/editstatus',$data);
+
+	}
+	public function status1(){
+		$id = $_POST['id'];
+		$status1 = $_POST['tolak'];
+		$statusupdate = array(
+			'status' => $status1
+		);
+		$where = array("id_kompensasi"=>$id);
+		$hasil = $this->GambarModel->update_data_status('kompensasi',$statusupdate,$where);
+		if($hasil > 0){
+			redirect('prodi/dashboard');
+		}
+		else
+		{
+			echo "gagal";
+		}
+
+	}
+	public function status2(){
+		$id = $_POST['id'];
+		$status = $_POST['terima'];
+		$statusupdate = array(
+			'status' => $status
+		);
+		$where = array("id_kompensasi"=>$id);
+		$hasil = $this->GambarModel->update_data_status('kompensasi',$statusupdate,$where);
+		if($hasil > 0){
+			redirect('prodi/dashboard');
+		}
+		else
+		{
+			echo "gagal";
+		}
+
+	}
 
 }
