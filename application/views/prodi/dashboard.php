@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Dashboard - Login CodeIgniter & Bootstrap</title>
+    <title> Dashboard Prodi</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -53,6 +53,7 @@
                       <th scope="col">Pertemuan</th>
                       <th scope="col">Thun Akademik</th>
                       <th scope="col">Semester</th>
+                      <th scope="col">Tanggal Kirim</th>
                       <th scope="col">Gambar</th>
                     </tr>
                   </thead>
@@ -70,6 +71,7 @@
                       <td><?php echo $row->pertemuan_matkul;?></td>
                       <td><?php echo $row->thn_akademik;?></td>
                       <td><?php echo $row->semester;?></td>
+                      <td><?php echo $row->tglKirim;?></td>
                       <td>
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<?= $no.'gambar'; ?>">Lihat</button>
                           

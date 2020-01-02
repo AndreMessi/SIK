@@ -37,40 +37,30 @@
         </div>
         <div class="col-md-12">
             <div class="panel panel-default">
+              <form class="form-inline pull-right" role="form" action="<?php echo site_url().'/admin/dashboard/cari/hasil';?>" method="POST">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="cari" name="cari" placeholder="cari nama mahasiswa">
+                </div>
+                <input class="btn btn-primary" type="submit" name="cari" value="Cari">
+              </form>
               <div class="panel-heading">
                 Selamat Datang <b><?php echo $this->session->userdata("user_nama") ?></b>
               </div>
               <div class="panel-body">
                 <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">No</th>
-                      <th scope="col">Nim</th>
-                      <th scope="col">Nama</th>
-                      <th scope="col">NamaMk</th>
-                      <th scope="col">Kelas</th>
-                      <th scope="col">Dosen</th>
-                      <th scope="col">Pertemuan</th>
-                      <th scope="col">Tanggal Kirim</th>
-                      <th scope="col">Status</th>
-                    </tr>
-                  </thead>
                   <tbody>
-                  <?php 
-                    $no=1; 
-                    foreach ($join3 as $row) { ?>
-                    <tr>
-                      <td><?php echo $no++;?></td>
-                      <td><?php echo $row->nim;?></td>
-                      <td><?php echo $row->nama;?></td>
-                      <td><?php echo $row->nama_matkul;?></td>
-                      <td><?php echo $row->kelas;?></td>
-                      <td><?php echo $row->nama_dosen;?></td>
-                      <td><?php echo $row->pertemuan_matkul;?></td>
-                      <td><?php echo $row->tglKirim;?></td>
-                      <td><?php echo $row->status;?></td>
-                    </tr>
-                  <?php } ?>
+                  <?php
+                    if(count($cari)>0)
+                    {
+                        foreach ($cari as $data) {
+                        echo $data->nama . " => " . $data->nim ."<br>";
+                        }
+                    }
+                    else
+                    {
+                        echo "Data tidak ditemukan";
+                    }
+                  ?>
                   </tbody>
                 </table>
               </div>

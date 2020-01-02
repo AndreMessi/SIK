@@ -17,15 +17,16 @@ class Dashboard extends CI_Controller {
 
     public function index()
     {
+        $query = $this->db->query("SELECT kompensasi.pertemuan_matkul, kompensasi.status, kompensasi.thn_akademik, kompensasi.semester, mahasiswa.nim, mahasiswa.nama, mahasiswa.gambar, mahasiswa.tglKirim, matakuliah.nama_matkul,matakuliah.kelas, dosen.nama_dosen FROM kompensasi JOIN mahasiswa ON kompensasi.id_mahasiswa = mahasiswa.id_mahasiswa JOIN dosen ON kompensasi.id_dosen = dosen.id_dosen JOIN matakuliah ON kompensasi.id_matakuliah = matakuliah.id_matakuliah ORDER BY id_kompensasi DESC")->result();
+        $data['title'] = "Join CodeIgniter"; 
         
-    $data['title'] = "Join CodeIgniter"; 
-    // query memanggil function duatable di model
-    $where = array(
-        //   '' => '',
-    );
-    $data['join3'] = $this->modelprodi->tigatable($where); 
-//   print_r($data);
-        $this->load->view("prodi/dashboard",$data);            
+        $where = array(
+            //   '' => '',
+        );
+
+        $data['join3'] = $this->modelprodi->tigatable($where, $query); 
+
+       $this->load->view("prodi/dashboard",$data);       
 
     }
 

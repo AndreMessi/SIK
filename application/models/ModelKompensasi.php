@@ -19,6 +19,11 @@
         return $query->result();
     }
 
+    public function cariMahasiswa(){
+        $cari = $this->input->GET('cari', TRUE);
+        $data = $this->db->query("SELECT * from mahasiswa where nama like '%$cari%' ");
+        return $data->result();
+    }
 
     //contoh model
     function tesmodel() {
@@ -29,6 +34,5 @@
      function delete($id){
         return $this->db->delete(_table,array("id_kompensasi"=>$id));
     }
-
 
 }

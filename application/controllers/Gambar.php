@@ -56,6 +56,7 @@ class Gambar extends CI_Controller {
 			'nim'=>$this->input->post('nim'),
 			'nama'=>$this->input->post('nama'),
 			'jurusan'=>$this->input->post('jurusan'),
+			'tglKirim'=>$this->input->post('tglKirim'),
 			'gambar' => $return['file']['file_name'],
 			
 		);

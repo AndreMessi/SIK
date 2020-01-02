@@ -95,13 +95,31 @@
                   <div class="form-group row">
                     <label for="thn_akademik" class="col-sm-3 col-form-label">Tahun Akademik</label>
                     <div class="col-sm-9">
-                      <input type="number" class="form-control" name="thn_akademik" value="<?php echo set_value('thn_akademik'); ?>">
+                      <select class="custom-select my-1 mr-sm-2" id="thn_akademik" name="thn_akademik">
+                        <option selected>Pilih Tahun Akademik</option>
+                        <option value="2011-2012">2011-2012</option>
+                        <option value="2013-2014">2013-2014</option>
+                        <option value="2014-2015">2014-2015</option>
+                        <option value="2016-2017">2016-2017</option>
+                        <option value="2018-2019">2018-2019</option>
+                        <option value="2020-2021">2020-2021</option>
+                      </select>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="semester" class="col-sm-3 col-form-label">Semester</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="semester" value="<?php echo set_value('semester'); ?>" placeholder="Masukkan semester">
+                      <select class="custom-select my-1 mr-sm-2" id="semester" name="semester">
+                        <option selected>Pilih Semester</option>
+                        <option value="Gasal">Gasal</option>
+                        <option value="Genap">Genap</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="semester" class="col-sm-3 col-form-label">Tanggal Kirim</label>
+                    <div class="col-sm-9">
+                      <input type="date" class="form-control" name="tglKirim" value="<?php echo set_value('tglKirim'); ?>">
                     </div>
                   </div>
                   <div class="form-group row">
